@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Watches</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom animations and transitions */
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        /* Fade-in animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Rotating loader animation */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hover animation for cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Hero background animation */
+        .hero {
+            background: linear-gradient(45deg, #007bff, #28a745);
+            background-size: 400% 400%;
+            animation: gradientShift 5s ease infinite;
+            color: white;
+            padding: 100px 0;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Button pulse animation */
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Image gallery styles */
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .upload-area {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Best Watches</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Open Modal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fade-in">Welcome to My Watch Store</h1>
+            <p class="lead fade-in">"Discover timeless craftsmanship and modern style at our watch store, where every timepiece makes a statement before you even say a word."</p>
+            <button class="btn btn-light btn-lg btn-pulse" data-bs-toggle="modal" data-bs-target="#exampleModal">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row fade-in align-items-center">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <p>Welcome to Best Watches, your premier destination for exquisite timepieces. Founded with a passion for precision and elegance, we offer a curated selection of watches that blend traditional craftsmanship with modern innovation. Our expert team ensures every watch meets the highest standards of quality and style, making us the go-to choice for watch enthusiasts worldwide.</p>
+                    <p>Explore our collection and find the perfect watch to complement your lifestyle.</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://dazzle.com.pk/wp-content/uploads/2024/11/1200x-1-2.jpg" alt="About Us Image" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fade-in">Our Watches</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://img.chrono24.com/images/uhren/43677128-2ypukswg8kdpzixhz5a274dk-ExtraLarge.jpg" class="card-img-top" alt="Watch 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Rolex GMT-Master II</h5>
+                            <p class="card-text">"The Rolex GMT-Master II delivers iconic luxury and dual-time precision for those who live life across time zones."</p>
+                            <p class="card-text"><strong>Price: $23,382</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://time4diamonds.com/cdn/shop/files/rolex-submariner-date-16610lv-kermit-2.png?v=1754666302&width=700" class="card-img-top" alt="Watch 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Rolex Submariner</h5>
+                            <p class="card-text">"The Rolex Submariner embodies timeless luxury and unmatched underwater precision in a truly iconic design."</p>
+                            <p class="card-text"><strong>Price: $10,800</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://www.watchonista.com/sites/default/files/watchographer/1/watches/492970/pictures/jacobandcocom_708331768_copie_square.jpg" class="card-img-top" alt="Watch 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Jacob & Co. Bugatti Chiron Tourbillon Baguette Blue Sapphires</h5>
+                            <p class="card-text">"A masterpiece of power and luxury, the Bugatti Chiron Tourbillon dazzles with blue sapphires and engineering made to astonish."</p>
+                            <p class="card-text"><strong>Price: $880,000</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://swisswatches-magazine.com/uploads/2024/01/hublot-mp10-tourbillon-weight-energy-system-titanium-lvmh-week-2048x1365.jpg" class="card-img-top" alt="Watch 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Hublot MP-10 Tourbillon Weight Energy System Titanium</h5>
+                            <p class="card-text">"Engineered for precision, the Hublot MP-10 Tourbillon fuses avant‑garde titanium build with groundbreaking energy mechanics for uncompromising luxury."</p>
+                            <p class="card-text"><strong>Price: $264,000</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://somervillewatchcompany.com/cdn/shop/files/seiko-mod-batman-gmt-dive-watch-premium-dial-974434.jpg?v=1725921505&width=713" class="card-img-top" alt="Watch 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Seiko Mod GMT "Batman" Dive Watch </h5>
+                            <p class="card-text">"Bold, precise, and adventurous—the Seiko Mod GMT 'Batman' takes your style across time zones with striking flair."</p>
+                            <p class="card-text"><strong>Price: $24,000</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fade-in">
+                        <img src="https://i0.wp.com/masterhorologer.com/wp-content/uploads/2019/03/Patek-Philippe-Grandmaster-Chime-Ref.-6300G-010-New-White-Gold-Version-with-Blue-Opaline-Dials-1.jpg?fit=1920%2C2716&ssl=1" class="card-img-top" alt="Watch 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Patek Philippe Grandmaster Chime Ref.</h5>
+                            <p class="card-text">"The ultimate masterpiece of watchmaking, with 20 complications and dual dials."</p>
+                            <p class="card-text"><strong>Price: $31,000,000</strong></p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fade-in">Contact Us</h2>
+            <div class="row fade-in">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h5>Get in Touch</h5>
+                    <p>Order online and get the best premium watches online at your home with the best quality available which gives yo0u a feeling of premium feel.</p>
+                    <p><strong>Email:</strong> info@example.com</p>
+                    <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 My Website. All rights reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This modal uses Bootstrap's built-in fade transition.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript for fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Image upload functionality
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const files = event.target.files;
+            const gallery = document.getElementById('imageGallery');
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'col-md-4 mb-4 fade-in';
+                        img.style.width = '100%';
+                        img.style.height = '200px';
+                        img.style.objectFit = 'cover';
+                        img.style.borderRadius = '8px';
+                        img.style.transition = 'transform 0.3s ease';
+                        img.onmouseover = () => img.style.transform = 'scale(1.05)';
+                        img.onmouseout = () => img.style.transform = 'scale(1)';
+                        gallery.appendChild(img);
+                        observer.observe(img); // Add fade-in observer to new images
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        // Drag and drop functionality
+        const uploadArea = document.querySelector('.upload-area');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#28a745';
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#007bff';
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#007bff';
+            const files = e.dataTransfer.files;
+            document.getElementById('imageUpload').files = files;
+            document.getElementById('imageUpload').dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>
